@@ -4,6 +4,6 @@ Sistema desenvolvido em PHP e MySQL, Orientado a Objetos e com gerenciamento de 
 
 ## Descrição das Entidades
 
-Entenda as entidades do sistema [aqui](./database/descricao.md)
+Entenda as entidades do sistema [aqui](./database/descricao_tabelas.md)
 
-![Diagrama do Banco](./database/sistema_vendas.png)
+![Diagrama do Banco](./database/diagrama.png)

@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../model/Entidade.php';
+
 class Usuario extends Entidade
 {
     private string $nomeCompleto;
