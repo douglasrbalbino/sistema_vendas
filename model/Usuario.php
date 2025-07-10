@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../model/Entidade.php';
+require_once __DIR__ . '/Entidade.php';
 
 class Usuario extends Entidade
 {

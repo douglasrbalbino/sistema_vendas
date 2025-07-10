@@ -81,6 +81,7 @@ echo "\n";
 // 5. Criando o pedido
 echo "5. Criando o Pedido completo...\n";
 $itensDoPedido = [$item1, $item2];
+
 $pedido = new Pedido(
     5001,
     $cliente,
@@ -97,7 +98,6 @@ $pedido = new Pedido(
 echo "\n";
 print_r($pedido);
 echo "\n";
-
 
 
 echo "\n===============================================\n";
@@ -133,3 +133,5 @@ echo "TOTAL DO PEDIDO: R$ " . number_format($pedido->getTotal(), 2, ',', '.') . 
 echo "===============================================\n";
 echo "TESTE CONCLUÍDO\n";
 echo "===============================================\n";
+
+?>
