@@ -70,6 +70,14 @@ class UsuarioDAO
         return $data ? $this->mapObject($data) : null;
     }
 
+    public function getByUsername(string $username): ?Usuario
+    {
+        $stmt = $this->db->prepare("SELECT * FROM usuario WHERE nome_usuario = :username");
+        $stmt->execute([':username' => $username]);
+        $data = $stmt->fetch();
+        return $data ? $this->mapObject($data) : null;
+    }
+
     public function getAll(bool $somenteAtivos = true): array
     {        
         $sql = "SELECT * FROM usuario" . ($somenteAtivos? " WHERE ativo = 1" : "") .  "ORDER BY nome_completo";
