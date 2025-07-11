@@ -37,7 +37,8 @@ class ProdutoDAO
             (bool)$row['ativo'],
             $row['data_criacao'],
             $row['data_atualizacao'],
-            $usuarioAtualizacao
+            $usuarioAtualizacao,
+
         );
     }
 
@@ -54,7 +55,7 @@ class ProdutoDAO
             ':descricao' => $produto->getDescricao(),
             ':preco' => $produto->getPreco(),
             ':categoria_id' => $categoriaId,
-            ':user_id' => $usuarioId
+            ':user_id' => $usuarioId,
         ]);
     }
 
