@@ -38,14 +38,15 @@ class ProdutoDAO
             $row['data_criacao'],
             $row['data_atualizacao'],
             $usuarioAtualizacao,
+            $row['imagem_url']
 
         );
     }
 
     public function create(Produto $produto, int $usuarioId): bool
     {
-        $sql = "INSERT INTO produto (nome, descricao, preco, categoria_id, usuario_atualizacao) 
-                VALUES (:nome, :descricao, :preco, :categoria_id, :user_id)";
+        $sql = "INSERT INTO produto (nome, descricao, preco, categoria_id, usuario_atualizacao, imagem_url) 
+                VALUES (:nome, :descricao, :preco, :categoria_id, :user_id, :imagem_url)";
         $stmt = $this->db->prepare($sql);
 
         $categoriaId = $produto->getCategoria() ? $produto->getCategoria()->getId() : null;
@@ -56,6 +57,7 @@ class ProdutoDAO
             ':preco' => $produto->getPreco(),
             ':categoria_id' => $categoriaId,
             ':user_id' => $usuarioId,
+            ':imagem_url' => $produto->getImagemUrl()
         ]);
     }
 
@@ -86,7 +88,8 @@ class ProdutoDAO
                     preco = :preco, 
                     categoria_id = :categoria_id, 
                     ativo = :ativo,
-                    usuario_atualizacao = :user_id 
+                    usuario_atualizacao = :user_id,
+                    imagem_url = :imagem_url 
                 WHERE id = :id";
         $stmt = $this->db->prepare($sql);
 
@@ -99,7 +102,8 @@ class ProdutoDAO
             ':preco' => $produto->getPreco(),
             ':categoria_id' => $categoriaId,
             ':ativo' => (int)$produto->isAtivo(),
-            ':user_id' => $usuarioId
+            ':user_id' => $usuarioId,
+            ':imagem_url' => $produto->getImagemUrl()
         ]);
     }
 

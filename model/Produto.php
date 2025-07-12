@@ -6,6 +6,9 @@ class Produto extends Entidade
     private ?string $descricao;
     private float $preco;
     private ?Categoria $categoria;
+
+    public ?string $imagemUrl;
+
     public function __construct(
         ?int $id, string $nome, ?string $descricao, float $preco, ?Categoria $categoria, bool $ativo = true, 
         ?string $dataCriacao = null, ?string $dataAtualizacao = null, ?Usuario $usuarioAtualizacao = null,
@@ -16,6 +19,7 @@ class Produto extends Entidade
         $this->descricao = $descricao;
         $this->preco = $preco;
         $this->categoria = $categoria;
+        $this->imagemUrl = $imagemUrl;
     }
     public function getNome(): string { return $this->nome; }
     public function getDescricao(): ?string { return $this->descricao; }

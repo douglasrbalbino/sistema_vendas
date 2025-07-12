@@ -29,6 +29,14 @@ require_once __DIR__ . '/../template/header.php';
         <input type="number" id="preco" name="preco" step="0.01" required>
     </div>
 
+
+    <div class="form-group">
+        <label for="Imagem">Imagem:</label>
+        <input type="text" id="imagem_produto" name="imagem_produto" step="0.01">
+    </div>
+
+
+
     <div class="form-group">
         <label for="categoria_id">Categoria:</label>
         <select id="categoria_id" name="categoria_id">
