@@ -23,11 +23,11 @@ switch ($acao) {
         $descricao = $_POST['descricao'] ?? '';
         $preco = (float)($_POST['preco'] ?? 0);
         $categoria_id = $_POST['categoria_id'] ?? null;
-        $imagemUrl = $_POST['imagem_produto'];
+        $imagemUrl = $_POST['imagem_produto'] ?? null;
         
         $categoria = $categoria_id ? $categoriaDAO->getById($categoria_id) : null;
         
-        $novoProduto = new Produto(null, $nome, $descricao, $preco, $categoria, true, null, null, null, $imagemUrl);
+        $novoProduto = new Produto(null, $nome, $descricao, $preco, $categoria, true, null, null, null, $imagemUrl ? $imagemUrl : null);
         $produtoDAO->create($novoProduto, $usuario_logado_id);
         
         header('Location: index.php');
@@ -40,7 +40,7 @@ switch ($acao) {
         $preco = (float)($_POST['preco'] ?? 0);
         $categoria_id = $_POST['categoria_id'] ?? null;
         $ativo = (bool)($_POST['ativo'] ?? 0);
-        $imagemUrl = $_POST['imagem_produto'];
+        $imagemUrl = $_POST['imagem_produto'] ?? null;
         
         $categoria = $categoria_id ? $categoriaDAO->getById($categoria_id) : null;
         
@@ -49,7 +49,7 @@ switch ($acao) {
         if ($produtoExistente) {
             $produtoAtualizado = new Produto(
                 $id, $nome, $descricao, $preco, $categoria, $ativo,
-                $produtoExistente->getDataCriacao(), null, null, $imagemUrl
+                $produtoExistente->getDataCriacao(), null, null, $imagemUrl ? $imagemUrl : null
             );
             $produtoDAO->update($produtoAtualizado, $usuario_logado_id);
         }

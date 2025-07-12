@@ -50,7 +50,7 @@ require_once __DIR__ . '/../template/header.php';
 
     <div class="form-group">
         <label for="Imagem">Imagem:</label>
-        <input type="text" id="imagem_produto" name="imagem_produto" step="0.01" value="<?= htmlspecialchars($produto->getImagemUrl()) ?>" required>
+        <input type="text" id="imagem_produto" name="imagem_produto" step="0.01" value="<?= htmlspecialchars($produto->getImagemUrl()) ?>">
     </div>
 
     <div class="form-group">
